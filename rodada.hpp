@@ -1,5 +1,6 @@
 #ifndef RODADA_H
 #define RODADA_H
+#include "baralho.cpp"
 
 class Rodada : public Baralho{
 
