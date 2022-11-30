@@ -1,14 +1,17 @@
-#include <iostream>
-#include <vector> 
-#include "cartas.hpp"
+#ifndef CARTAS_HPP
+#define CARTAS_HPP
+#include <string>
 
-Carta::Carta(std::string nome, int valor) {
- _nome = nome;
- _valor = valor;
-}
-std::string Carta::get_nome() const {
- return _nome;
-}
-int Carta::get_valor() const {
- return _valor;
-}
+ class Carta {
+ private:
+ std::string _nome;
+ int _valor;
+
+ public:
+ Carta(std::string nome, int valor);
+ int get_valor() const;
+ std::string get_nome() const;
+
+ };
+ 
+#endif
