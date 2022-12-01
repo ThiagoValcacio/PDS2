@@ -1,14 +1,22 @@
-#include <iostream>
-#include <vector> 
 #include "/home/tva/exemplos.pds/git/PDS2/include/cartas.hpp"
 
-Carta::Carta(std::string nome, int _valor) 
+Carta::Carta(std::string _nome, int _valor) 
 {
-    _nome_carta = nome;
+    nome_carta = _nome;
     valor = _valor;
 }
 
-std::string Carta:: get_nome() const
+std::string Carta::get_nome()
 {
-    return _nome_carta;
+    return nome_carta;
+}
+
+int Carta::get_valor()
+{
+    return valor;
+}
+
+void Carta::imprime_carta()
+{
+    std::cout << get_nome() << std::endl;
 }

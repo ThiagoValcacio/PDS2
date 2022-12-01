@@ -20,12 +20,12 @@ void Jogador::add_nome(string _nome)
     nome = _nome;
 }
 
-vector<Cartas> Jogador::get_cartas()
+vector<Carta> Jogador::get_cartas()
 {
     return mao;
 }
 
-void Jogador::add_cartas(Cartas _carta)
+void Jogador::add_cartas(Carta _carta)
 {
     mao.push_back(_carta);
 }
@@ -38,12 +38,7 @@ void Jogador::remove_carta(int _indice)
 //preciso da classe cartas pronta
 void Jogador::mostra_cartas()
 {
-    int i = 1;
-    //for (auto it: mao)
-    //{
-    //    cout << i << " - " << it << endl;
-    //    i++;
-    //}
+    
 }
 
 //vai ser reescrito
