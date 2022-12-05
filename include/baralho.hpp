@@ -1,15 +1,15 @@
-#ifndef BARALHO_HPP
-#define BARALHO_HPP
+#ifndef _baralho_H__
+#define _baralho_H__
 
-#include <vector>
-#include "cartas.hpp"
+#include <set>
 
-class Baralho
-{
-    public:
-        std::vector<Carta> _deck;
-        void exclui_cartas(int indice);
-        int maior_menor_igual(Carta c1, Carta c2);
+class Baralho{
+public:
+    void embaralhar();
+    int get_carta();
+    int tamanho_baralho();
+private:
+    std::set<int>_baralho;
 };
 
 #endif

@@ -14,8 +14,16 @@ baralho:
 	#@mkdir build/baralho/
 	$(CC) $(CFLAGS) -c src/baralho.cpp -o build/baralho.o
 
-main:   cartas baralho
-	$(CC) $(CFLAGS) build/cartas.o build/baralho.o src/main.cpp -o $(TARGET)
+jogador:
+	#@mkdir build/jogador/
+	$(CC) $(CFLAGS) -c src/jogador.cpp -o build/jogador.o
+
+partida:
+	#@mkdir build/partida/
+	$(CC) $(CFLAGS) -c src/partida.cpp -o build/partida.o
+
+main:   cartas baralho jogador partida
+	$(CC) $(CFLAGS) build/cartas.o build/baralho.o build/jogador.o build/partida.o src/main.cpp -o $(TARGET)
 	
 clean:
 	$(RM) -r $(BUILDDIR)/* $(TARGET) 
