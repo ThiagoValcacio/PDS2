@@ -1,10 +1,10 @@
 ######################################################################
 # Variables to control Makefile operation
-CC 		:= g++
+CC 	:= g++
 FLAGS 	:= -g -Wall
 BUILD 	:= ./build
 SRC 	:= ./src
-INCLUDE 	= ./include
+INCLUDE := ./include
 TESTES 	:= ./testes
 ######################################################################
 #	$(variavel) no lugar do nome da pasta
