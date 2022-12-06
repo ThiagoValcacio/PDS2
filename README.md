@@ -54,7 +54,7 @@ A fim de modularizar o código e facilitar a compreensão e o diálogo proveitos
 
 **CARTAS**
 
-As cartas, ao passar pelo processo de abstração, foram representadas por meio de um std::unordered_map<int,std::pair<int,std::string>>, em que cada carta tinha um número associado em int (de 1 a 40), bem como seu valor no jogo em int(cartas com o mesmo valor no truco mineiro como um 3 de copas e um 3 de ouros por exemplo receberam o mesmo valor) e um símbolo associado, no caso uma string com o número e o desenho do naipe como 7♥. Além disso, a classe cartas possui dois métodos gat_valor_carta e get_carta, que retornam, a partir do número de 1-40 associado a cada carta seu respectivo valor e símbolo.
+As cartas, ao passar pelo processo de abstração, foram representadas por meio de um std::unordered_map<int,std::pair<int,std::string>>, em que cada carta tinha um número associado em int (de 1 a 40), bem como seu valor no jogo em int(cartas com o mesmo valor no truco mineiro como um 3 de copas e um 3 de ouros por exemplo receberam o mesmo valor) e um símbolo associado, no caso uma string com o número e o desenho do naipe como 7♥. Além disso, a classe cartas possui dois métodos get_valor_carta e get_carta, que retornam, a partir do número de 1-40 associado a cada carta seu respectivo valor e símbolo.
 
 **BARALHO**
 
