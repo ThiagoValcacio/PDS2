@@ -28,6 +28,7 @@ class Partida {
         //Bot e,f,g,h;
 
         int _maior_carta_t1=0, _maior_carta_t2 =0, _rodada_ganha_t1 = 0, _rodada_ganha_t2 = 0,rodada=0;
+        int truco = 2;
     };
 
 #endif

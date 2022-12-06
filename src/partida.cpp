@@ -2,7 +2,7 @@
 #include "../include/jogador.hpp"
 #include "../include/cartas.hpp"
 #include "../include/baralho.hpp"
-//#include "../include/bot.hpp"
+#include "../include/menu.hpp"
 
 
 #include <iostream>
@@ -54,6 +54,7 @@
 
     void Partida::jogo(std::vector<int> ordem)//ordem de jogo 1 = a, 2 = c, 3 = b, 4 = d
     {
+        Menu menu;
         for(int i = 0;i<4;++i)
         {
         int jogador = ordem.at(i); //jogador = 1,2,3,4
@@ -62,20 +63,43 @@
                 if(jogador>4||jogador<1)throw std::invalid_argument("problema no if de Partida::Jogo");
                 Jogador& Jogador(this->get_dupla(jogador));//simplificando leitura
                 std::cout << "vez do Jogador " << Jogador.get_nome() << std::endl;//nome do jogador
-                Jogador.ver_carta(); //mostrar as cartas em mãos/ ja tem o cout
-                std::cout << "Escolha qual carta dejesa mandar" <<std::endl;
-                int carta;
-                std::cin>>carta;// escolher carta criar algo para impedir que mande letra
-                while (carta <=0||carta > Jogador.tamanho_mao())
+                //Jogador.ver_carta(); //mostrar as cartas em mãos/ ja tem o cout
+                //std::cout << "Escolha qual carta dejesa mandar" <<std::endl;
+                int resposta, carta;
+                resposta = menu.menu_interno();
+                switch (resposta)
                 {
-                    std::cout <<"Por favor escolha uma das opções disponiveis" <<std::endl;
-                    for (int t = 0;t<Jogador.tamanho_mao();t++){
-                        std::cout <<" ("<<t+1<<")";
-                    }
-                    std::cout<<std::endl;
-                    Jogador.ver_carta();
+                case 1: Jogador.ver_carta();
+                case 2: {
                     std::cin>>carta;
+                    while (carta <=0||carta > Jogador.tamanho_mao())
+                    {
+                        std::cout <<"Por favor escolha uma das opções disponiveis" <<std::endl;
+                        for (int t = 0;t<Jogador.tamanho_mao();t++){
+                            std::cout <<" ("<<t+1<<")";
+                        }
+                        std::cout<<std::endl;
+                        Jogador.ver_carta();
+                        std::cin>>carta;
+                    }
+                    break;
                 }
+                case 3:{
+                    std::cout<<Jogador.get_nome()<<" pediu truco"<<std::endl;
+                    std::cout<<"o que vao fazer\n (1)aceitar\n (2)correr"<<std::endl;
+                    std::cin>>resposta;
+                    while (resposta <1||resposta > 2) 
+                    {
+                        std::cout <<"Por favor escolha uma das opções disponiveis" <<std::endl;
+                        std::cout<<"o que vao fazer\n(1)aceitar\n (2)correr"<<std::endl;
+                        std::cin>>resposta;
+                    }
+                    switch(resposta){
+                        case 1: truco +=2;
+                        case 2: {if(jogador==1||jogador==3){_rodada_ganha_t1=4;break;}
+                        else {_rodada_ganha_t2=4;break;}
+                        }
+                    }if(resposta!=2){
                 //this->get_dupla(ordem.at(i)).jogar_carta(carta);
                 Cartas c;
                 if(jogador==1||jogador==3)// dupla 1
@@ -89,6 +113,14 @@
                     this->set_ponto_time_2(c.get_valor_carta(carta));
                     std ::cout <<"Jogador "<<Jogador.get_nome()<<" lancou : "<< c.get_carta(carta) << std::endl << std::endl;    
                 }else throw std::invalid_argument("dupla inexistente (fora do 1,2,3,4)");// chamar valor fora do 1,2,3,4
+                }
+                break;
+                }
+            case 4:
+            {
+                exit(0);
+                }
+                }
             }else
             {// 5 define a como bot, 6 define b como bot, 7 define c como bot, 9 define d como bot//
                 switch (jogador)//convertendo os bots para jogadores
@@ -145,6 +177,7 @@
             }
         }
     }
+
 
     void Partida:: set_ponto_time_1(int rank)
     {
