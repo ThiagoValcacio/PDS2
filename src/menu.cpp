@@ -2,7 +2,7 @@
 using namespace std;
 #include <vector>
 
-Menu::Menu_inicial()
+Menu::Menu()
 {
     cout << "################################################################" << endl;
     cout << "Voce deseja jogar uma partida 2x2 contra humanos ou contra robos?" << endl;
