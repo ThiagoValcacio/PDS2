@@ -61,13 +61,14 @@ As cartas, ao passar pelo processo de abstração, foram representadas por meio 
 O baralho, por sua vez, não foi feito pelo processo de herança, mas como um set<int> que armazenava a chave das cartas (1-40), com funções de embaralhar (retorna um baralho novo, necessário após cada rodada terminar, em que todos os números de 1-40 retornavam ao set), tamanho_baralho (retorna o tamanho do set utilizando .size()) e get_carta (retorna a chave de um número do set, de forma aleatória, e em seguida o apaga do conjunto).
 
 **JOGADOR**
- 
-O jogador contém um valor de string referente ao seu nome e um set<int>, com os valores que representam as cartas que estão em sua mão a cada rodada. Além dos métodos triviais como set_nome, get_nome e tamanho_mao, tem uma função para incializar a mao (apaga valores anteriores e recebe três valores do tipo int referentes a chave das cartas recebidas), uma para ver cartas, que imprime seu símbolo com um número associado (de 1 a 3, referente a posição na mão) e uma para jogar a carta (retorna o valor da carta escolhida e a tira do set _mão.
+
+O jogador contém um valor de string referente ao seu nome e um set<int>, com os valores que representam as cartas que estão em sua mão a cada rodada. Além dos métodos triviais como set_nome, get_nome e tamanho_mao, tem uma função para incializar a mao (apaga valores anteriores e recebe três valores do tipo int referentes a chave das cartas recebidas), uma para ver cartas, que imprime seu símbolo com um número associado (de 1 a 3, referente a posição na mão) e uma para jogar a carta (retorna o valor da carta escolhida e a tira do set _mão. Por fim, foi adicionada a função maior_carta, que retorna o valor da maior carta que o referido jogador possui na mão.
 
 **PARTIDA**
- 
-A partida é formada por quatro jogadorers, além de dois ranks (t1 e t2), dois pontos (t1 e t2) e uma rodada, que armazenam valores de inteiros, inicializados em 0. Como métodos não triviais 
+
+A partida é formada por quatro jogadorers, além de dois rodada_ganha (t1 e t2), dois pontos (t1 e t2) e uma rodada, que armazenam valores de inteiros, inicializados em 0. Como métodos não triviais como gets e sets, há uma função vencedor, que verifica quem lançou a carta de maior valor na rodada e adiciona pontos à respectiva equipe. Há também a função de iniciar partida e clear_all, que retorna os valores de ranks, pontos e rodadas para o inicial, isto é, 0.
 
 **TRATAMENTO DE EXCESSÕES**
  
 Em uma das funções da classe baralho, foi feito um tratamento de excessão, em que caso o baralho apresentado estivesse vazio, isto é, sem valores em seu conjunto set, o programa retorna em forma de cerror "sem baralho".
+Na função get_dupla, da classe partida, que recebe um parâmetro de int para identificar a dupla, no caso de algum número diferente de 1, 2, 3 ou 4, o programa retorna a mensagem de erro "dupla inexistente (fora do 1,2,3,4)".
