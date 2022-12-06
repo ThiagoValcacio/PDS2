@@ -13,6 +13,8 @@ class Jogador{
         void set_nome(std::string);
         int tamanho_mao();
         std::string get_nome();
+        int maior_carta();
+        
 
     private:
         std::set<int>_mao; 
