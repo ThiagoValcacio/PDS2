@@ -11,7 +11,7 @@
 public:
     int get_valor_carta(int);
     std::string get_carta(int);
-    
+
 private:
     const std::unordered_map <int,std::pair<int,std::string>> _cartas = 
         {//♥♦♣♠

@@ -16,15 +16,7 @@
     for(auto it: _mao)
     {
     Cartas c;
-        
-    std::string carta;
-        
-    carta = "######\n#    #\n# ";
-    carta += c.get_carta(it);
-    carta += " #\n#    #\n######\n";   
-    
-    cout << desenho_carta <<endl;
-    std::cout <<"Carta ( "<<i<<" ): "<< carta <<std::endl;
+    std::cout <<"Carta ( "<<i<<" ): "<< c.get_carta(it) <<std::endl;
     ++i;
     }
     }
@@ -39,15 +31,7 @@
         _mao.erase(it);         // descarta
         return carta; 
     }
-        int Jogador::maior_carta(){//maior_carta()=ultima carta da mao
-    //preciso retornar o ponto da maior carta
-    if(_mao.size()==0)throw std::invalid_argument("sem cartas");
-        Cartas c;
-        std::set<int>::iterator it = _mao.begin();
-        int tamanho = _mao.size()-1; //
-        for(int itt = 0;itt<tamanho;itt++){++it;};
-        return c.get_valor_carta(*it);
-    }
+
     void Jogador::set_nome(std::string nome){
         _nome = nome;  
     }
@@ -57,4 +41,14 @@
     }
     int Jogador::tamanho_mao(){
         return _mao.size();
+    }
+
+    int Jogador::maior_carta(){//maior_carta()=ultima carta da mao
+    //preciso retornar o ponto da maior carta
+    if(_mao.size()==0)throw std::invalid_argument("sem cartas");
+        Cartas c;
+        std::set<int>::iterator it = _mao.begin();
+        int tamanho = _mao.size()-1; //
+        for(int itt = 0;itt<tamanho;itt++){++it;};
+        return c.get_valor_carta(*it);
     }
