@@ -20,7 +20,7 @@ int main(){
     {
         //gerar cartas na mão do jogador
         jogo.jogo(aux._ordem);           // faz o jogo
-        cout <<"jogo"<<endl;
+        cout <<"RESULTADOS..."<<endl;
         jogo.vencedor();                              //
         aux._ordem.emplace_back(*aux._ordem.begin());  // trocando ordem de quem começa
         aux._ordem.erase(aux._ordem.begin());

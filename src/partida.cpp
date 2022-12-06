@@ -82,7 +82,7 @@
                 {
                     carta = Jogador.jogar_carta(carta);
                     this->set_ponto_time_1(c.get_valor_carta(carta));
-                    std ::cout <<"Jogador "<<Jogador.get_nome()<<" lancou : "<< c.get_carta(carta) << std::endl;    
+                    std ::cout <<"Jogador "<<Jogador.get_nome()<<" lancou : "<< c.get_carta(carta) << std::endl << std::endl;    
                 }else if(jogador==2||jogador==4)  // dupa 2
                 {
                     carta =Jogador.jogar_carta(carta);
@@ -101,7 +101,6 @@
                 }
                 Cartas carta;//auxiliar ver pontos da carta
                 Jogador& Jogador(this->get_dupla(jogador));//1 e 3 chama a e c, 2 e 4 chama b e d
-                std::cout << std::endl;
                 std::cout <<"########################" << std::endl;
                 //Jogador.ver_carta();
                 int ponto_carta_adversario,ponto_carta_aliado;
@@ -131,7 +130,6 @@
                 if(jogador == 1 || jogador == 3)// dupla 1
                 {
                     this->set_ponto_time_1(carta.get_valor_carta(valor_carta));
-                    std::cout << std::endl;
                     std::cout <<"bot "<<Jogador.get_nome()<<" lancou : "<< carta.get_carta(valor_carta) << std::endl;
                     std::cout <<"########################" << std::endl << std::endl;
                     //std::cout<<_maior_carta_t1<<  std::endl;
@@ -180,19 +178,31 @@
                 this-> rodada+=1;
                 this->_maior_carta_t1 = 0;
                 this->_maior_carta_t2 = 0;
-                std::cout<<"rodada "<<rodada<<" empatada"<<std::endl;
+                std::cout<<"set "<<rodada<<" empatado"<<std::endl;
+                if (rodada == 1)
+                {
+
+                }
+                if (rodada == 2)
+                {
+
+                }
+                if (rodada == 3)
+                {
+                    
+                }
             }else if(this->_maior_carta_t2 > this->_maior_carta_t1){
                 this->_rodada_ganha_t2+=2;
                 this-> rodada+=1;
                 this->_maior_carta_t1 = 0;
                 this->_maior_carta_t2 = 0;
-                std::cout<<"dupla 2 venceu a rodada " << rodada <<std::endl;
+                std::cout<<"dupla 2 venceu a rodada " <<std::endl << std::endl;
             }else {
                 this->_rodada_ganha_t1+=2;
                 this-> rodada+=1;
                 this->_maior_carta_t1 = 0;
                 this->_maior_carta_t2 = 0;
-                std::cout<<"dupla 1 venceu a rodada " << rodada <<std::endl;
+                std::cout<<"dupla 1 venceu o set " << rodada <<std::endl << std::endl;
             }
         }        
 
