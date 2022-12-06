@@ -48,3 +48,21 @@ O truco mineiro é jogado com 40 cartas, retirando os coringas, 8, 9 e 10. A seq
 Manilhas são as cartas com maior valor no Truco. No Truco Mineiro, as manilhas são fixas.
 
 O zap, 4 de paus, é a carta mais forte do Truco. Da mais valiosa para a menos valiosa, as manilhas no truco mineiro são: 4 de paus (Zap) > 7 de copas > A de espadas (Espadilha) > 7 de ouros.
+
+## O CÓDIGO
+A fim de modularizar o código e facilitar a compreensão e o diálogo proveitoso de diferentes pessoas, o projeto foi dividido em três pastas além do Makefile e do arquivo README.md. A primeira pasta, "include", contém os arquivos .hpp, também conhecidos como contratos dos TADs (Tipos Abstratos de Dados). Dessa forma, mantém-se os princípios de modularização e boas práticas do código. Já na pasta "src", foram descritos os métodos previamente citados nos contratos, com cada arquivo .cpp referente a um respectivo arquivo .hpp, além de um arquivo "main.cpp", responsável pela junção das partes já descritas.
+
+###CARTAS
+As cartas, ao passar pelo processo de abstração, foram representadas por meio de um std::unordered_map<int,std::pair<int,std::string>>, em que cada carta tinha um número associado em int (de 1 a 40), bem como seu valor no jogo em int(cartas com o mesmo valor no truco mineiro como um 3 de copas e um 3 de ouros por exemplo receberam o mesmo valor) e um símbolo associado, no caso uma string com o número e o desenho do naipe como 7♥. Além disso, a classe cartas possui dois métodos gat_valor_carta e get_carta, que retornam, a partir do número de 1-40 associado a cada carta seu respectivo valor e símbolo.
+
+###BARALHO
+O baralho, por sua vez, não foi feito pelo processo de herança, mas como um set<int> que armazenava a chave das cartas (1-40), com funções de embaralhar (retorna um baralho novo, necessário após cada rodada terminar, em que todos os números de 1-40 retornavam ao set), tamanho_baralho (retorna o tamanho do set utilizando .size()) e get_carta (retorna a chave de um número do set, de forma aleatória, e em seguida o apaga do conjunto).
+
+###JOGADOR
+O jogador contém um valor de string referente ao seu nome e um set<int>, com os valores que representam as cartas que estão em sua mão a cada rodada. Além dos métodos triviais como set_nome, get_nome e tamanho_mao, tem uma função para incializar a mao (apaga valores anteriores e recebe três valores do tipo int referentes a chave das cartas recebidas), uma para ver cartas, que imprime seu símbolo com um número associado (de 1 a 3, referente a posição na mão) e uma para jogar a carta (retorna o valor da carta escolhida e a tira do set _mão.
+
+###PARTIDA
+A partida é formada por quatro jogadorers, além de dois ranks (t1 e t2), dois pontos (t1 e t2) e uma rodada, que armazenam valores de inteiros, inicializados em 0. Como métodos não triviais 
+
+###TRATAMENTO DE EXCESSÕES
+Em uma das funções da classe baralho, foi feito um tratamento de excessão, em que caso o baralho apresentado estivesse vazio, isto é, sem valores em seu conjunto set, o programa retorna em forma de cerror "sem baralho".
