@@ -16,7 +16,15 @@
     for(auto it: _mao)
     {
     Cartas c;
-    std::cout <<"Carta ( "<<i<<" ): "<< c.get_carta(it) <<std::endl;
+        
+    std::string carta;
+        
+    carta = "######\n#    #\n# ";
+    carta += c.get_carta(it);
+    carta += " #\n#    #\n######\n";   
+    
+    cout << desenho_carta <<endl;
+    std::cout <<"Carta ( "<<i<<" ): "<< carta <<std::endl;
     ++i;
     }
     }
