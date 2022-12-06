@@ -87,7 +87,7 @@
                 {
                     carta =Jogador.jogar_carta(carta);
                     this->set_ponto_time_2(c.get_valor_carta(carta));
-                    std ::cout <<"Jogador "<<Jogador.get_nome()<<" lancou : "<< c.get_carta(carta) << std::endl;    
+                    std ::cout <<"Jogador "<<Jogador.get_nome()<<" lancou : "<< c.get_carta(carta) << std::endl << std::endl;    
                 }else throw std::invalid_argument("dupla inexistente (fora do 1,2,3,4)");// chamar valor fora do 1,2,3,4
             }else
             {// 5 define a como bot, 6 define b como bot, 7 define c como bot, 9 define d como bot//
@@ -179,18 +179,6 @@
                 this->_maior_carta_t1 = 0;
                 this->_maior_carta_t2 = 0;
                 std::cout<<"set "<<rodada<<" empatado"<<std::endl;
-                if (rodada == 1)
-                {
-
-                }
-                if (rodada == 2)
-                {
-
-                }
-                if (rodada == 3)
-                {
-                    
-                }
             }else if(this->_maior_carta_t2 > this->_maior_carta_t1){
                 this->_rodada_ganha_t2+=2;
                 this-> rodada+=1;

@@ -2,7 +2,7 @@
 using namespace std;
 #include <vector>
 
-Menu::Menu_inicial()
+Menu::Menu()
 {
     cout << "################################################################" << endl;
     cout << "Voce deseja jogar uma partida 2x2 contra humanos ou contra robos?" << endl;
@@ -44,26 +44,4 @@ Menu::Menu_inicial()
     } else {
         this->_ordem = {1,2,3,4};
     }
-}
-
-int Menu::menu_interno()
-{
-    cout<< "############################" <<endl;
-    cout<< "# O que voce deseja fazer? #"<<endl;
-    cout<< "# (1) - Ver carta          #"<<endl;
-    cout<< "# (2) - Lancar carta       #"<<endl;
-    cout<< "# (3) - Pedir truco        #"<<endl;
-    cout<< "# (4) - Sair do jogo       #"<<endl;
-    cout<< "############################" <<endl;
-    
-    int opcao;
-    
-    cin >> opcao;
-    
-    while(opcao <= 0 || opcao > 4){
-        
-        cout<< "Ops! Escolha uma das opcoes validas" <<endl;
-        cin >> opcao;
-    }
-    return opcao;
 }
