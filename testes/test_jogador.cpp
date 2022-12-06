@@ -1,47 +1,34 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 #include "../testes/doctest.h" //https://github.com/doctest/doctest.git
-#include "../include/jogador.hpp" 
-#include "../include/cartas.hpp"
+#include "../include/jogador.hpp"
 
-Jogador jogador;
-TEST_CASE( "Test jogador valor carta" )
+#include <set>
+#include <iostream>
+#include <string>
+
+TEST_CASE( "Test inicializar, jogar_ca e tamanho_mao" )
+{   
+    Jogador jogador;
+    CHECK(jogador.tamanho_mao()==0);
+    jogador.inicializar(40,10, 1);
+    CHECK(jogador.tamanho_mao()==3);
+    jogador.inicializar(21, 2, 4);
+    CHECK(jogador.tamanho_mao()==3);
+    jogador.jogar_carta(1);
+    CHECK(jogador.tamanho_mao()==2);
+    jogador.jogar_carta(1);
+    CHECK(jogador.tamanho_mao()==1);
+    jogador.jogar_carta(1);
+    CHECK(jogador.tamanho_mao()==0);
+}
+TEST_CASE("test get e set nome")
 {
-    
-    CHECK( 1==0);
-}
-void Jogador::inicializar(int a,int b,int c){//receber cartas
-      _mao.clear();
-      _mao = {a,b,c};
-  }
-int Jogador::valor_carta(int carta){
-      Cartas c;
-      return c.get_valor_carta(carta);
-  }
-void Jogador::ver_carta(){
-int i = 1;
-for(auto it: _mao)
-{
-Cartas c;
-std::cout <<"Carta ( "<<i<<" ): "<< c.get_carta(it) <<std::endl;
-++i;
-}
-}
-int Jogador::jogar_carta(int i){// retorna uma carta de 1-40
-    std::set<int>::iterator it = _mao.begin();  //pega carta na posição / -1 é para comecar no 0
-    for(int itt =0;itt<i;++itt){
-        ++it;
-    }
-    int carta = *it;        // pega o valor da carta 
-    _mao.erase(it);         // descarta
-    return carta; 
-}
-void Jogador::set_nome(std::string nome){
-    _nome = nome;  
-}
-std::string Jogador::get_nome(){
-    return _nome;
-}
-int Jogador::tamanho_mao(){
-    return _mao.size();
+    Jogador jogador;
+    jogador.set_nome("Tasso");
+    CHECK(jogador.get_nome()=="Tasso");
+    jogador.set_nome("ossaT");
+    CHECK(jogador.get_nome()=="ossaT");
+    jogador.set_nome("Augusto");
+    CHECK(jogador.get_nome()=="Augusto");
 }
