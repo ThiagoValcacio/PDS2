@@ -2,14 +2,14 @@
 using namespace std;
 #include <vector>
 
-Menu::Menu()
+Menu::Menu_inicial()
 {
     cout << "################################################################" << endl;
-    cout << "Você deseja jogar uma partida 2x2 contra humanos ou contra robôs?" << endl;
+    cout << "Voce deseja jogar uma partida 2x2 contra humanos ou contra robos?" << endl;
     int i = 3;
     while(1)
     {
-        cout << "Digite 1 para jogar contra amigos, 0 para jogar contra robôs" << endl;
+        cout << "Digite 1 para jogar contra amigos, 0 para jogar contra robos" << endl;
         cin >> i;
         if (i == 0 || i == 1)
         {
@@ -20,11 +20,11 @@ Menu::Menu()
     {
         while (1)
         {
-            cout << "escolha com quantos robôs você quer jogar, por seu respectivo índice..." << endl;
-            cout << "(1) -> 2 humanos contra 2 robôs..." << endl;
-            cout << "(2) -> 1 humano e 1 robô contra 2 robôs..." << endl;
-            cout << "(3) -> 2 humanos contra 1 robô e 1 humano..." << endl;
-            cout << "(4) -> Para ver um jogo somente entre robôs..." << endl;
+            cout << "Escolha com quantos robos voce quer jogar, por seu respectivo indice" << endl;
+            cout << "(1) -> 2 humanos contra 2 robos" << endl;
+            cout << "(2) -> 1 humano e 1 robo contra 2 robos" << endl;
+            cout << "(3) -> 2 humanos contra 1 robo e 1 humano" << endl;
+            cout << "(4) -> Para ver um jogo somente entre robos" << endl;
             cin >> i;
             if (i == 1){
                 this->_ordem = {1,6,3,8};
@@ -44,4 +44,26 @@ Menu::Menu()
     } else {
         this->_ordem = {1,2,3,4};
     }
+}
+
+int Menu::menu_interno()
+{
+    cout<< "############################" <<endl;
+    cout<< "# O que voce deseja fazer? #"<<endl;
+    cout<< "# (1) - Ver carta          #"<<endl;
+    cout<< "# (2) - Lancar carta       #"<<endl;
+    cout<< "# (3) - Pedir truco        #"<<endl;
+    cout<< "# (4) - Sair do jogo       #"<<endl;
+    cout<< "############################" <<endl;
+    
+    int opcao;
+    
+    cin >> opcao;
+    
+    while(opcao <= 0 || opcao > 4){
+        
+        cout<< "Ops! Escolha uma das opcoes validas" <<endl;
+        cin >> opcao;
+    }
+    return opcao;
 }
