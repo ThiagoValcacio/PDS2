@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-class Menu_inicial
+class Menu
 {
     public:
         Menu();
