@@ -3,11 +3,12 @@
 #include <iostream>
 #include <vector>
 
-class Menu
+class Menu_inicial
 {
     public:
         Menu();
         std::vector<int> _ordem;
+        int menu_interno();
 };
 
 #endif
